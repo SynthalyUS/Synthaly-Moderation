@@ -28,7 +28,7 @@ script.Parent.Events.SetPermBan.Event:Connect(function(UserID, Reason, Moderator
 	end)
 	
 	if not Username_Success then
-		return warn("[!] BLUEBERRY: Username couldn't be found while trying to set temporary ban: " ..Username_Error.. "| Error code: 205")
+		return warn("[!] Kapspire: Username couldn't be found while trying to set temporary ban: " ..Username_Error.. "| Error code: 205")
 	end
 
 
@@ -37,7 +37,7 @@ script.Parent.Events.SetPermBan.Event:Connect(function(UserID, Reason, Moderator
 	local Success, Error = pcall(function()
 		PermBanDataStore:SetAsync(UserID, {Reason, Moderator})
 		local messagingService = game:GetService("MessagingService")
-		messagingService:PublishAsync("Blueberry_PermBans", UserID)
+		messagingService:PublishAsync("Kapspire_PermBans", UserID)
 	end)
 	
 
@@ -45,13 +45,13 @@ script.Parent.Events.SetPermBan.Event:Connect(function(UserID, Reason, Moderator
 	
 	if Success then
 		print("Permanent ban added: UserID; " ..UserID.. "; Reason; " ..Reason.."; Moderator; " ..Moderator)
-		Log:Fire("User permanently banned", "A permanent ban was issued using Blueberry services. Moderated by **"..Moderator.."**."  , 5814783, "https://www.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&username=" ..username, "User banned", username, "Reason", Reason, "New permanent ban log!")		
+		Log:Fire("User permanently banned", "A permanent ban was issued using Kapspire services. Moderated by **"..Moderator.."**."  , 5814783, "https://www.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&username=" ..username, "User banned", username, "Reason", Reason, "New permanent ban log!")		
 	end
 	
 	
 	
 	if not Success then
-		warn("[!] BLUEBERRY: Error while trying to create permanent ban: " ..Error.. "| Error code: 191")
+		warn("[!] Kapspire: Error while trying to create permanent ban: " ..Error.. "| Error code: 191")
 	end
 	
 	if game:GetService('Players'):FindFirstChild(username) then
@@ -68,7 +68,7 @@ script.Parent.Events.SetPermBan.Event:Connect(function(UserID, Reason, Moderator
 		
 		if Theme == 'light' then
 		
-			local GUI = script.Blueberry_PermBanned_Light:Clone()
+			local GUI = script.Kapspire_PermBanned_Light:Clone()
 
 
 			if UseCustomGUI == true then
@@ -80,7 +80,7 @@ script.Parent.Events.SetPermBan.Event:Connect(function(UserID, Reason, Moderator
 				AClone.Parent = toKick.PlayerGui
 
 				AClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-					toKick:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Blueberry")
+					toKick:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Kapspire")
 				end)
 
 				while wait(5) do
@@ -89,7 +89,7 @@ script.Parent.Events.SetPermBan.Event:Connect(function(UserID, Reason, Moderator
 						local BClone = GUI:Clone()
 						BClone.Parent = toKick.PlayerGui
 						BClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-							toKick:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Blueberry")
+							toKick:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Kapspire")
 						end)
 					else
 						GUI:Destroy()
@@ -106,7 +106,7 @@ script.Parent.Events.SetPermBan.Event:Connect(function(UserID, Reason, Moderator
 				AClone.Parent = toKick.PlayerGui
 
 				AClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-					toKick:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Blueberry")
+					toKick:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Kapspire")
 				end)
 
 				while wait(5) do
@@ -115,7 +115,7 @@ script.Parent.Events.SetPermBan.Event:Connect(function(UserID, Reason, Moderator
 						local BClone = GUI:Clone()
 						BClone.Parent = toKick.PlayerGui
 						BClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-							toKick:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Blueberry")
+							toKick:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Kapspire")
 						end)
 					else
 						GUI:Destroy()
@@ -126,7 +126,7 @@ script.Parent.Events.SetPermBan.Event:Connect(function(UserID, Reason, Moderator
 			
 			
 		elseif Theme == 'dark' then
-			local GUI = script.Blueberry_PermBanned_Dark:Clone()
+			local GUI = script.Kapspire_PermBanned_Dark:Clone()
 
 
 			if UseCustomGUI == true then
@@ -138,7 +138,7 @@ script.Parent.Events.SetPermBan.Event:Connect(function(UserID, Reason, Moderator
 				AClone.Parent = toKick.PlayerGui
 
 				AClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-					toKick:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Blueberry")
+					toKick:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Kapspire")
 				end)
 
 				while wait(5) do
@@ -147,7 +147,7 @@ script.Parent.Events.SetPermBan.Event:Connect(function(UserID, Reason, Moderator
 						local BClone = GUI:Clone()
 						BClone.Parent = toKick.PlayerGui
 						BClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-							toKick:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Blueberry")
+							toKick:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Kapspire")
 						end)
 					else
 						GUI:Destroy()
@@ -164,7 +164,7 @@ script.Parent.Events.SetPermBan.Event:Connect(function(UserID, Reason, Moderator
 				AClone.Parent = toKick.PlayerGui
 
 				AClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-					toKick:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Blueberry")
+					toKick:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Kapspire")
 				end)
 
 				while wait(5) do
@@ -173,7 +173,7 @@ script.Parent.Events.SetPermBan.Event:Connect(function(UserID, Reason, Moderator
 						local BClone = GUI:Clone()
 						BClone.Parent = toKick.PlayerGui
 						BClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-							toKick:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Blueberry")
+							toKick:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Kapspire")
 						end)
 					else
 						GUI:Destroy()
@@ -192,7 +192,7 @@ script.Parent.Events.SetPermBan.Event:Connect(function(UserID, Reason, Moderator
 		--[[ Auto-Kick ]]--	
 		if AutoKick == true then
 			wait(AutoKickDuration)
-			toKick:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Blueberry")
+			toKick:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Kapspire")
 		end
 
 
@@ -244,7 +244,7 @@ game:GetService('Players').PlayerAdded:Connect(function(joined)
 
 			if Theme == 'light' then
 
-				local GUI = script.Blueberry_PermBanned_Light:Clone()
+				local GUI = script.Kapspire_PermBanned_Light:Clone()
 
 
 				if UseCustomGUI == true then
@@ -256,7 +256,7 @@ game:GetService('Players').PlayerAdded:Connect(function(joined)
 					AClone.Parent = player.PlayerGui
 
 					AClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-						player:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Blueberry")
+						player:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Kapspire")
 					end)
 
 					while wait(5) do
@@ -265,7 +265,7 @@ game:GetService('Players').PlayerAdded:Connect(function(joined)
 							local BClone = GUI:Clone()
 							BClone.Parent = player.PlayerGui
 							BClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-								player:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Blueberry")
+								player:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Kapspire")
 							end)
 						else
 							GUI:Destroy()
@@ -283,7 +283,7 @@ game:GetService('Players').PlayerAdded:Connect(function(joined)
 					AClone.Parent = player.PlayerGui
 
 					AClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-						player:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Blueberry")
+						player:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Kapspire")
 					end)
 
 					while wait(5) do
@@ -292,7 +292,7 @@ game:GetService('Players').PlayerAdded:Connect(function(joined)
 							local BClone = GUI:Clone()
 							BClone.Parent = player.PlayerGui
 							BClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-								player:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Blueberry")
+								player:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Kapspire")
 							end)
 						else
 							GUI:Destroy()
@@ -303,7 +303,7 @@ game:GetService('Players').PlayerAdded:Connect(function(joined)
 
 
 			elseif Theme == 'dark' then
-				local GUI = script.Blueberry_PermBanned_Dark:Clone()
+				local GUI = script.Kapspire_PermBanned_Dark:Clone()
 
 
 				if UseCustomGUI == true then
@@ -316,7 +316,7 @@ game:GetService('Players').PlayerAdded:Connect(function(joined)
 					AClone.Parent = player.PlayerGui
 
 					AClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-						player:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Blueberry")
+						player:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Kapspire")
 					end)
 
 					while wait(5) do
@@ -325,7 +325,7 @@ game:GetService('Players').PlayerAdded:Connect(function(joined)
 							local BClone = GUI:Clone()
 							BClone.Parent = player.PlayerGui
 							BClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-								player:Kick(" | [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Blueberry")
+								player:Kick(" | [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Kapspire")
 							end)
 						else
 							GUI:Destroy()
@@ -343,7 +343,7 @@ game:GetService('Players').PlayerAdded:Connect(function(joined)
 					AClone.Parent = player.PlayerGui
 
 					AClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-						player:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Blueberry")
+						player:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Kapspire")
 					end)
 
 					while wait(5) do
@@ -352,7 +352,7 @@ game:GetService('Players').PlayerAdded:Connect(function(joined)
 							local BClone = GUI:Clone()
 							BClone.Parent = player.PlayerGui
 							BClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-								player:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Blueberry")
+								player:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Kapspire")
 							end)
 						else
 							GUI:Destroy()
@@ -369,7 +369,7 @@ game:GetService('Players').PlayerAdded:Connect(function(joined)
 			--[[ Auto-Kick ]]--	
 			if AutoKick == true then
 				wait(AutoKickDuration)
-				player:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Blueberry")
+				player:Kick("| [PERMANENTLY BANNED] | Reason: " ..Reason.. " | -Kapspire")
 			else
 				--// Do nothing
 			end
@@ -394,9 +394,9 @@ end)
 ------------------------
 --// MessagingService: inter-server connection
 local messagingService = game:GetService("MessagingService")
-messagingService:SubscribeAsync("Blueberry_PermBans", function(message)
+messagingService:SubscribeAsync("Kapspire_PermBans", function(message)
 	local targetName = game:GetService('Players'):GetNameFromUserIdAsync(message.Data) 
-	print("[>] BLUEBERRY: Received ban request for " ..targetName)
+	print("[>] Kapspire: Received ban request for " ..targetName)
 	
 	if game:GetService('Players'):FindFirstChild(targetName) then
 		local user = game:GetService('Players'):FindFirstChild(targetName)
