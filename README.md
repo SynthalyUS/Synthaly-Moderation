@@ -1,5 +1,5 @@
 <div align="center">
-	<img width="70%" src="https://i.imgur.com/yfWt6lo_d.jpg)">
+	<img width="70%" src="![image](https://github.com/Kapspire/Kapspire-Moderation/assets/131310227/6ebfe878-1605-4d32-8e5b-fcc783f01dff)">
 	<h2 align="center"> Kapspire Moderation v1.2 — A moderation system from the future</h2>
 </div>
 <div>
@@ -35,7 +35,8 @@ Once you finish that, you can consider that Kapspire Moderation is installed. Th
 <div align="center">
 	<h2></h2>
 	<p>brought you by</p>
-	<img width="20%" href="https://github.com/Kapspire/" src="https://i.imgur.com/yfWt6lo_d.jpg">
+	<img width="20%" href="https://github.com/Kapspire/" src="![image](https://github.com/Kapspire/Kapspire-Moderation/assets/131310227/26bb4784-4777-4171-9d39-238c3d69132d)
+">
 	<br>
 	<a href="https://github.com/Kapspire/">Kapspire Development team</a>
 	<h2></h2>
