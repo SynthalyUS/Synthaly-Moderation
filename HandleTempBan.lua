@@ -26,7 +26,7 @@ script.Parent.Events.SetTempBan.Event:Connect(function(UserID, Duration, Reason,
 	end)
 	
 	if not Username_Success then
-		return warn("[!] BLUEBERRY: Username couldn't be found while trying to set temporary ban: " ..Username_Error.. "| Error code: 205")
+		return warn("[!] Kapspire: Username couldn't be found while trying to set temporary ban: " ..Username_Error.. "| Error code: 205")
 	end
 
 
@@ -41,7 +41,7 @@ script.Parent.Events.SetTempBan.Event:Connect(function(UserID, Duration, Reason,
 	local Success, Error = pcall(function()
 		BanStore:SetAsync(UserID, {EndTime, Reason, Moderator})
 		local messagingService = game:GetService("MessagingService")
-		messagingService:PublishAsync("Blueberry_TempBans", UserID)
+		messagingService:PublishAsync("Kapspire_TempBans", UserID)
 	end)
 	
 	
@@ -51,13 +51,13 @@ script.Parent.Events.SetTempBan.Event:Connect(function(UserID, Duration, Reason,
 	
 	if Success then
 		print("Temporary ban added: UserID; " ..UserID.. "; Reason; " ..Reason.."; Moderator; " ..Moderator.. "; Duration; ~" ..TimeLeft.." minutes")
-		Log:Fire("User temporary banned", "A temporary ban was issued using Blueberry services. Duration of ban: `~"..TimeLeft.." minutes`. Moderated by **"..Moderator.."**."  , 5814783, "https://www.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&username=" ..username, "User banned", username, "Reason", Reason, "New temporary ban log!")		
+		Log:Fire("User temporary banned", "A temporary ban was issued using Kapspire services. Duration of ban: `~"..TimeLeft.." minutes`. Moderated by **"..Moderator.."**."  , 5814783, "https://www.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&username=" ..username, "User banned", username, "Reason", Reason, "New temporary ban log!")		
 	end
 	
 	
 	
 	if not Success then
-		warn("[!] BLUEBERRY: Error while trying to create temporary ban: " ..Error.. "| Error code: 191")
+		warn("[!] Kapspire: Error while trying to create temporary ban: " ..Error.. "| Error code: 191")
 	end
 	
 	if game:GetService('Players'):FindFirstChild(username) then
@@ -74,7 +74,7 @@ script.Parent.Events.SetTempBan.Event:Connect(function(UserID, Duration, Reason,
 		
 		if Theme == 'light' then
 		
-			local GUI = script.Blueberry_TempBanned_Light:Clone()
+			local GUI = script.Kapspire_TempBanned_Light:Clone()
 
 
 			if UseCustomGUI == true then
@@ -86,7 +86,7 @@ script.Parent.Events.SetTempBan.Event:Connect(function(UserID, Duration, Reason,
 				AClone.Parent = toKick.PlayerGui
 
 				AClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-					toKick:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Blueberry")
+					toKick:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Kapspire")
 				end)
 
 				while wait(5) do
@@ -95,7 +95,7 @@ script.Parent.Events.SetTempBan.Event:Connect(function(UserID, Duration, Reason,
 						local BClone = GUI:Clone()
 						BClone.Parent = toKick.PlayerGui
 						BClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-							toKick:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Blueberry")
+							toKick:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Kapspire")
 						end)
 					else
 						GUI:Destroy()
@@ -112,7 +112,7 @@ script.Parent.Events.SetTempBan.Event:Connect(function(UserID, Duration, Reason,
 				AClone.Parent = toKick.PlayerGui
 
 				AClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-					toKick:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Blueberry")
+					toKick:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Kapspire")
 				end)
 
 				while wait(5) do
@@ -121,7 +121,7 @@ script.Parent.Events.SetTempBan.Event:Connect(function(UserID, Duration, Reason,
 						local BClone = GUI:Clone()
 						BClone.Parent = toKick.PlayerGui
 						BClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-							toKick:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Blueberry")
+							toKick:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Kapspire")
 						end)
 					else
 						GUI:Destroy()
@@ -132,7 +132,7 @@ script.Parent.Events.SetTempBan.Event:Connect(function(UserID, Duration, Reason,
 			
 			
 		elseif Theme == 'dark' then
-			local GUI = script.Blueberry_TempBanned_Dark:Clone()
+			local GUI = script.Kapspire_TempBanned_Dark:Clone()
 
 
 			if UseCustomGUI == true then
@@ -144,7 +144,7 @@ script.Parent.Events.SetTempBan.Event:Connect(function(UserID, Duration, Reason,
 				AClone.Parent = toKick.PlayerGui
 
 				AClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-					toKick:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Blueberry")
+					toKick:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Kapspire")
 				end)
 
 				while wait(5) do
@@ -153,7 +153,7 @@ script.Parent.Events.SetTempBan.Event:Connect(function(UserID, Duration, Reason,
 						local BClone = GUI:Clone()
 						BClone.Parent = toKick.PlayerGui
 						BClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-							toKick:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Blueberry")
+							toKick:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Kapspire")
 						end)
 					else
 						GUI:Destroy()
@@ -170,7 +170,7 @@ script.Parent.Events.SetTempBan.Event:Connect(function(UserID, Duration, Reason,
 				AClone.Parent = toKick.PlayerGui
 
 				AClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-					toKick:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Blueberry")
+					toKick:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Kapspire")
 				end)
 
 				while wait(5) do
@@ -179,7 +179,7 @@ script.Parent.Events.SetTempBan.Event:Connect(function(UserID, Duration, Reason,
 						local BClone = GUI:Clone()
 						BClone.Parent = toKick.PlayerGui
 						BClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-							toKick:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Blueberry")
+							toKick:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Kapspire")
 						end)
 					else
 						GUI:Destroy()
@@ -203,7 +203,7 @@ script.Parent.Events.SetTempBan.Event:Connect(function(UserID, Duration, Reason,
 		--[[ Auto-Kick ]]--	
 		if AutoKick == true then
 			wait(AutoKickDuration)
-			toKick:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | - Blueberry")
+			toKick:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | - Kapspire")
 		end
 
 
@@ -261,7 +261,7 @@ game:GetService('Players').PlayerAdded:Connect(function(joined)
 				--[[ Create GUI ]]--
 				if Theme == 'light'  then
 
-					local GUI = script.Blueberry_TempBanned_Light:Clone()
+					local GUI = script.Kapspire_TempBanned_Light:Clone()
 
 
 					if UseCustomGUI == true then
@@ -273,7 +273,7 @@ game:GetService('Players').PlayerAdded:Connect(function(joined)
 						AClone.Parent = player.PlayerGui
 
 						AClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-							player:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Blueberry")
+							player:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Kapspire")
 						end)
 
 						while wait(5) do
@@ -282,7 +282,7 @@ game:GetService('Players').PlayerAdded:Connect(function(joined)
 								local BClone = GUI:Clone()
 								BClone.Parent = player.PlayerGui
 								BClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-									player:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Blueberry")
+									player:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Kapspire")
 								end)
 							else
 								GUI:Destroy()
@@ -299,7 +299,7 @@ game:GetService('Players').PlayerAdded:Connect(function(joined)
 						AClone.Parent = player.PlayerGui
 
 						AClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-							player:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Blueberry")
+							player:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Kapspire")
 						end)
 
 						while wait(5) do
@@ -308,7 +308,7 @@ game:GetService('Players').PlayerAdded:Connect(function(joined)
 								local BClone = GUI:Clone()
 								BClone.Parent = player.PlayerGui
 								BClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-									player:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Blueberry")
+									player:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Kapspire")
 								end)
 							else
 								GUI:Destroy()
@@ -323,7 +323,7 @@ game:GetService('Players').PlayerAdded:Connect(function(joined)
 					
 				else
 					
-					local GUI = script.Blueberry_TempBanned_Light:Clone()
+					local GUI = script.Kapspire_TempBanned_Light:Clone()
 
 
 					if UseCustomGUI == true then
@@ -335,7 +335,7 @@ game:GetService('Players').PlayerAdded:Connect(function(joined)
 						AClone.Parent = player.PlayerGui
 
 						AClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-							player:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Blueberry")
+							player:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Kapspire")
 						end)
 
 						while wait(5) do
@@ -344,7 +344,7 @@ game:GetService('Players').PlayerAdded:Connect(function(joined)
 								local BClone = GUI:Clone()
 								BClone.Parent = player.PlayerGui
 								BClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-									player:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Blueberry")
+									player:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Kapspire")
 								end)
 							else
 								GUI:Destroy()
@@ -361,7 +361,7 @@ game:GetService('Players').PlayerAdded:Connect(function(joined)
 						AClone.Parent = player.PlayerGui
 
 						AClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-							player:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Blueberry")
+							player:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Kapspire")
 						end)
 
 						while wait(5) do
@@ -370,7 +370,7 @@ game:GetService('Players').PlayerAdded:Connect(function(joined)
 								local BClone = GUI:Clone()
 								BClone.Parent = player.PlayerGui
 								BClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-									player:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Blueberry")
+									player:Kick("| [TEMPORARY BANNED] | Time left: ~ " ..TimeLeft.. " minutes | Reason: " ..Reason.. " | -Kapspire")
 								end)
 							else
 								GUI:Destroy()
@@ -413,9 +413,9 @@ end)
 ------------------------
 --// MessagingService: inter-server connection
 local messagingService = game:GetService("MessagingService")
-messagingService:SubscribeAsync("Blueberry_TempBans", function(message)
+messagingService:SubscribeAsync("Kapspire_TempBans", function(message)
 	local targetName = game:GetService('Players'):GetNameFromUserIdAsync(message.Data) 
-	print("[>] BLUEBERRY: Received temporary ban request for " ..targetName)
+	print("[>] Kapspire: Received temporary ban request for " ..targetName)
 
 	if game:GetService('Players'):FindFirstChild(targetName) then
 		local user = game:GetService('Players'):FindFirstChild(targetName)
