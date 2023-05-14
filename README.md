@@ -26,7 +26,7 @@ Once all the assets from `Ungroup in ServerScriptService` are placed inside of `
 
 Once you have done that, you should also notice a `Folder` called `Ungroup in ChatModules`, make sure that you place and ungroup it inside of the `ChatModules` `Folder` in the `Chat` section of Roblox Studio in order to add the advanced chat filter (this is optional).
 
-Once you finish that, you can consider that Kapspire Moderation is installed. The system can now operate, however, you will still want to configure the settings. To do this, open the `Settings` file in both  the `Kapspire Admin` `Folder` and the `Kapspire Panel` `Folder` located in `ServerScriptService`. Customize the settings - everything is explained inside the settings and config script (comments).
+Once you finish that, you can consider that Kapspire Moderation is installed. The system can now operate, however, you will still want to configure the settings. To do this, open the `Settings` file in both  the `Kapspire Admin` `Folder` and the `Kapspire Panel` `Folder` located in the `Kapspire Moderation` `Folder` inside of `ServerScriptService`. Customize the settings - everything is explained inside the settings and config script (comments).
 </div>
 <div>
 	<h2>License</h2>
