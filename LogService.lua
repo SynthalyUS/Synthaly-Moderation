@@ -36,8 +36,8 @@ script.Parent.Events.Log.Event:Connect(function(title, description, color_code, 
 						["url"] = image_link;
 					};
 					["footer"] = { -- Again, has to be stored as a table.
-						["text"] = "· BLUEBERRY";
-						["icon_url"] = "https://media.discordapp.net/attachments/897089045316919347/945395566538534942/icon_2.png?width=551&height=551"; -- The image icon you want your footer to have
+						["text"] = "Kapspire Moderation";
+						["icon_url"] = "https://tr.rbxcdn.com/10e39fb060e3228bbfd1490fcaa7c847/500/500/Image/Png"; -- The image icon you want your footer to have
 					};
 					["timestamp"] = DateTime.now():ToIsoDate(); -- Will add the date, and the time to the message, not regular to discord.
 					["fields"] = { -- Make a table
@@ -65,7 +65,7 @@ script.Parent.Events.Log.Event:Connect(function(title, description, color_code, 
 		end)
 		
 		if not HTTP_success then
-			warn("[!] BLUEBERRY: There was an erro while trying to post the webhook. Make sure HTTP requests are enabled in game settings. Error: " ..HTTP_error.. "| Error code: 102")
+			warn("[!] Kapspire: There was an erro while trying to post the webhook. Make sure HTTP requests are enabled in game settings. Error: " ..HTTP_error.. "| Error code: 102")
 		end
 		
 		
