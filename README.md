@@ -1,5 +1,5 @@
 <div align="center">
-	<img width="70%" src="https://github.com/Kapspire/Kapspire-Moderation/assets/131310227/6ebfe878-1605-4d32-8e5b-fcc783f01dff">
+	<img width="70%" src="https://i.imgur.com/pdgBus4.png">
 	<h2 align="center"> Kapspire Moderation v1.2 — A moderation system from the future</h2>
 </div>
 <div>
