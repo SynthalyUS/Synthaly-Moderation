@@ -30,7 +30,7 @@ Once you finish that, you can consider that Kapspire Moderation is installed. Th
 </div>
 <div>
 	<h2>License</h2>
-	<p>Kapspire is licensed under the <a href="https://github.com/Kapspire/Kapspire-Admin/blob/main/proprietary_license.md">Proprietary license</a></p>
+	<p>Kapspire is licensed under the <a href="https://github.com/Kapspire/Kapspire-Moderation/blob/main/proprietary_license.md">Proprietary license</a></p>
 </div>
 <div align="center">
 	<h2></h2>
