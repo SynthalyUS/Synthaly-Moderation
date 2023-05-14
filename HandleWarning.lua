@@ -36,9 +36,9 @@ script.Parent.Events.SetWarning.Event:Connect(function(UserID, Reason, Moderator
 		
 		
 		print("New warning set: UserID; " ..UserID.. "; Reason; " ..Reason.."; Moderator; " ..Moderator)
-		Log:Fire("New warning issued", "A new warning was issued using Blueberry services. Warning issued by **" ..Moderator.."**.", 5814783, "https://www.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&username=" ..username, "Issued to", username, "Reason", Reason, "New warning log!")
+		Log:Fire("New warning issued", "A new warning was issued using Kapspire services. Warning issued by **" ..Moderator.."**.", 5814783, "https://www.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&username=" ..username, "Issued to", username, "Reason", Reason, "New warning log!")
 	else
-		warn("[!] BLUEBERRY: Error while saving warning data: " ..Error.. "| Error code: 191")
+		warn("[!] Kapspire: Error while saving warning data: " ..Error.. "| Error code: 191")
 	end
 	
 	
@@ -55,7 +55,7 @@ script.Parent.Events.SetWarning.Event:Connect(function(UserID, Reason, Moderator
 			
 			if Theme == 'light' then
 
-				local GUI = script.Blueberry_Warned_Light:Clone()
+				local GUI = script.Kapspire_Warned_Light:Clone()
 
 
 				if UseCustomGUI == true then
@@ -67,7 +67,7 @@ script.Parent.Events.SetWarning.Event:Connect(function(UserID, Reason, Moderator
 
 					GUI.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
 
-						API:removeWarning(player.Name, "Automatic warning removal: user accepted", "Blueberry Core")
+						API:removeWarning(player.Name, "Automatic warning removal: user accepted", "Kapspire Core")
 						GUI:Destroy()
 
 					end)
@@ -81,7 +81,7 @@ script.Parent.Events.SetWarning.Event:Connect(function(UserID, Reason, Moderator
 
 					GUI.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
 
-						API:removeWarning(player.Name, "Automatic warning removal: user accepted", "Blueberry Core")
+						API:removeWarning(player.Name, "Automatic warning removal: user accepted", "Kapspire Core")
 						GUI:Destroy()
 
 					end)
@@ -89,7 +89,7 @@ script.Parent.Events.SetWarning.Event:Connect(function(UserID, Reason, Moderator
 
 
 			elseif Theme == 'dark' then
-				local GUI = script.Blueberry_Warned_Dark:Clone()
+				local GUI = script.Kapspire_Warned_Dark:Clone()
 
 
 				if UseCustomGUI == true then
@@ -101,7 +101,7 @@ script.Parent.Events.SetWarning.Event:Connect(function(UserID, Reason, Moderator
 
 					GUI.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
 
-						API:removeWarning(player.Name, "Automatic warning removal: user accepted", "Blueberry Core")
+						API:removeWarning(player.Name, "Automatic warning removal: user accepted", "Kapspire Core")
 						GUI:Destroy()
 
 					end)
@@ -115,7 +115,7 @@ script.Parent.Events.SetWarning.Event:Connect(function(UserID, Reason, Moderator
 
 					GUI.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
 
-						API:removeWarning(player.Name, "Automatic warning removal: user accepted", "Blueberry Core")
+						API:removeWarning(player.Name, "Automatic warning removal: user accepted", "Kapspire Core")
 						GUI:Destroy()
 
 					end)
@@ -151,7 +151,7 @@ game:GetService('Players').PlayerAdded:Connect(function(player)
 	
 	
 	if not Success then
-		warn("[!] BLUEBERRY: Error while getting database info: " ..Error.. "| Error code: 191")
+		warn("[!] Kapspire: Error while getting database info: " ..Error.. "| Error code: 191")
 	end
 	
 	
@@ -168,7 +168,7 @@ game:GetService('Players').PlayerAdded:Connect(function(player)
 
 		if Theme == 'light' then
 
-			local GUI = script.Blueberry_Warned_Light:Clone()
+			local GUI = script.Kapspire_Warned_Light:Clone()
 
 
 			if UseCustomGUI == true then
@@ -180,7 +180,7 @@ game:GetService('Players').PlayerAdded:Connect(function(player)
 
 				GUI.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
 
-					API:removeWarning(player.Name, "Automatic warning removal: user accepted", "Blueberry Core")
+					API:removeWarning(player.Name, "Automatic warning removal: user accepted", "Kapspire Core")
 					GUI:Destroy()
 
 				end)
@@ -194,7 +194,7 @@ game:GetService('Players').PlayerAdded:Connect(function(player)
 
 				GUI.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
 					
-					API:removeWarning(player.Name, "Automatic warning removal: user accepted", "Blueberry Core")
+					API:removeWarning(player.Name, "Automatic warning removal: user accepted", "Kapspire Core")
 					GUI:Destroy()
 					
 				end)
@@ -202,7 +202,7 @@ game:GetService('Players').PlayerAdded:Connect(function(player)
 
 
 		elseif Theme == 'dark' then
-			local GUI = script.Blueberry_Warned_Dark:Clone()
+			local GUI = script.Kapspire_Warned_Dark:Clone()
 
 
 			if UseCustomGUI == true then
@@ -214,7 +214,7 @@ game:GetService('Players').PlayerAdded:Connect(function(player)
 
 				GUI.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
 					
-					API:removeWarning(player.Name, "Automatic warning removal: user accepted", "Blueberry Core")
+					API:removeWarning(player.Name, "Automatic warning removal: user accepted", "Kapspire Core")
 					GUI:Destroy()
 					
 				end)
@@ -228,7 +228,7 @@ game:GetService('Players').PlayerAdded:Connect(function(player)
 
 				GUI.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
 					
-					API:removeWarning(player.Name, "Automatic warning removal: user accepted", "Blueberry Core")
+					API:removeWarning(player.Name, "Automatic warning removal: user accepted", "Kapspire Core")
 					GUI:Destroy()
 					
 				end)
