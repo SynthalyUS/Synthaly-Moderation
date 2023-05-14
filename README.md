@@ -35,7 +35,7 @@ Once you finish that, you can consider that Kapspire Moderation is installed. Th
 <div align="center">
 	<h2></h2>
 	<p>brought you by</p>
-	<img width="20%" href="https://github.com/Kapspire/" src="https://i.imgur.com/qH6I0lA.jpg">
+	<img width="20%" href="https://github.com/Kapspire/" src="https://i.imgur.com/yfWt6lo.jpg">
 	<br>
 	<a href="https://github.com/Kapspire/">Kapspire Development team</a>
 	<h2></h2>
