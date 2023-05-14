@@ -11,7 +11,7 @@ Kapspire Moderation has a lot of possibility and potential, it is also the best 
 <div>
 	<h2>Quicklinks</h2>
 	<ul>
-		<li><a href="https://devforum.roblox.com/t/kapspire-moderation-v12-—-a-moderation-system-from-the-future">Documentation</a></li>
+		<li><a href="https://devforum.roblox.com/t/2336631">Documentation</a></li>
 		<li><a href="https://discord.gg/jBmCVXD73A">Discord Server</a></li>
 		<li><a href="https://www.roblox.com/library/9120128201/">Roblox Model</a></li>
 	</ul>
