@@ -4,7 +4,7 @@
 </div>
 <div>
 	<p>
-**Kapspire Moderation** is an administrative system created for your roblox game, it has the purpose of giving people powers and giving people commands to do things. Kapspire Moderation is also used to do things you would usually have to make many scripts for, for example, if you want to change a leader board stat kapspire can do that, if you want to add custom commands, you can script them yourself too.
+Kapspire Moderation is an administrative system created for your roblox game, it has the purpose of giving people powers and giving people commands to do things. Kapspire Moderation is also used to do things you would usually have to make many scripts for, for example, if you want to change a leader board stat kapspire can do that, if you want to add custom commands, you can script them yourself too.
 Kapspire Moderation has a lot of possibility and potential, it is also the best admin system out there.
 	</p>
 </div>
