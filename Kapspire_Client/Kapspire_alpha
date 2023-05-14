@@ -13,3 +13,4 @@ game:GetService('Players').LocalPlayer.PlayerGui.ChildRemoved:Connect(function(c
 		end
 	end
 end)
+k
