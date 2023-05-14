@@ -23,7 +23,7 @@ script.Parent.Events.SetSlock.Event:Connect(function(value, groupID, min_rank, m
 		Min_Rank = min_rank
 		Moderator = moderator
 		Reason = reason
-		print("[*] BLUEBERRY: Server locked for players with the rank below " ..Min_Rank.." with reason: " ..Reason)
+		print("[*] Kapspire: Server locked for players with the rank below " ..Min_Rank.." with reason: " ..Reason)
 
 		-------------------------------
 	elseif value == false then
@@ -34,7 +34,7 @@ script.Parent.Events.SetSlock.Event:Connect(function(value, groupID, min_rank, m
 		Min_Rank = nil
 		Moderator = nil
 		Reason = nil
-		print("[*] BLUEBERRY: Server unlocked")
+		print("[*] Kapspire: Server unlocked")
 
 		-------------------------------
 	end
@@ -55,7 +55,7 @@ game:GetService('Players').PlayerAdded:Connect(function(player)
 
 			if Theme == 'light' then
 
-				local GUI = script.Blueberry_Slocked_Light:Clone()
+				local GUI = script.Kapspire_Slocked_Light:Clone()
 
 
 					GUI.Background.MainFrame.ReasonCase.ReasonText.Text = Reason
@@ -64,7 +64,7 @@ game:GetService('Players').PlayerAdded:Connect(function(player)
 					AClone.Parent = player.PlayerGui
 
 					AClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-						player:Kick("| [SERVER LOCKED] | Reason: " ..Reason.. " | -Blueberry")
+					player:Kick("| [SERVER LOCKED] | Reason: " ..Reason.. " | -Kapspire")
 					end)
 
 					while wait(5) do
@@ -73,7 +73,7 @@ game:GetService('Players').PlayerAdded:Connect(function(player)
 							local BClone = GUI:Clone()
 							BClone.Parent = player.PlayerGui
 							BClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-								player:Kick("| [SERVER LOCKED] | Reason: " ..Reason.. " | -Blueberry")
+							player:Kick("| [SERVER LOCKED] | Reason: " ..Reason.. " | -Kapspire")
 							end)
 						else
 							GUI:Destroy()
@@ -84,7 +84,7 @@ game:GetService('Players').PlayerAdded:Connect(function(player)
 
 
 			elseif Theme == 'dark' then
-				local GUI = script.Blueberry_Slocked_Dark:Clone()
+				local GUI = script.Kapspire_Slocked_Dark:Clone()
 
 
 					GUI.Background.MainFrame.ReasonCase.ReasonText.Text = Reason
@@ -93,7 +93,7 @@ game:GetService('Players').PlayerAdded:Connect(function(player)
 					AClone.Parent = player.PlayerGui
 
 					AClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-						player:Kick("| [SERVER LOCKED] | Reason: " ..Reason.. " | -Blueberry")
+					player:Kick("| [SERVER LOCKED] | Reason: " ..Reason.. " | -Kapspire")
 					end)
 
 					while wait(5) do
@@ -102,7 +102,7 @@ game:GetService('Players').PlayerAdded:Connect(function(player)
 							local BClone = GUI:Clone()
 							BClone.Parent = player.PlayerGui
 							BClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-								player:Kick("| [SERVER LOCKED] | Reason: " ..Reason.. " | -Blueberry")
+							player:Kick("| [SERVER LOCKED] | Reason: " ..Reason.. " | -Kapspire")
 							end)
 						else
 							GUI:Destroy()
@@ -117,7 +117,7 @@ game:GetService('Players').PlayerAdded:Connect(function(player)
 			--[[ Auto-Kick ]]--	
 			if AutoKick == true then
 				wait(AutoKickDuration)
-				player:Kick("| [SERVER LOCKED] | Reason: " ..Reason.. " | -Blueberry")
+				player:Kick("| [SERVER LOCKED] | Reason: " ..Reason.. " | -Kapspire")
 			end
 			
 			
