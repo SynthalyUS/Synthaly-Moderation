@@ -1,8 +1,8 @@
-<img width="150" height="150" src="https://i.imgur.com/n4q9F5s.png" alt="Kapspire"> <br />
-<h3>Kapspire</h3>
+<img width="150" height="150" src="https://i.imgur.com/JthVBZs.png" alt="Synthaly"> <br />
+<h3>Synthaly</h3>
 <sup>Proprietary License</sup> <br />
-<sup>Copyright © 2023 Kapspire. - All rights reserved.</sup> <br /> <br />
-<sup>Last Revised: April 16th, 2023</sup>
+<sup>Copyright © 2023 Synthaly. - All rights reserved.</sup> <br /> <br />
+<sup>Last Revised: June 11th, 2023</sup>
 
 
 ___
