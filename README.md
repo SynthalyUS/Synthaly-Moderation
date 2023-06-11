@@ -39,6 +39,3 @@ Once you finish that, you can consider that Synthaly Moderation is installed. Th
 	<br>
 	<a href="https://github.com/SynthalyUS/">Synthaly Development Team</a>
 	<h2></h2>
-</div>
-](https://i.imgur.com/JthVBZs.png
-)
