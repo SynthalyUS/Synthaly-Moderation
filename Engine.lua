@@ -16,20 +16,20 @@ local API = require(script.Parent.API)
 local Folder = script.Parent.Parent
 
 if Folder.Parent ~= game:GetService("ServerScriptService") then
-	print("[-] Kapspire: Parent isn't ServerScriptService. Attempting to move folder.")
+	print("[-] Synthaly: Parent isn't ServerScriptService. Attempting to move folder.")
 
 	repeat Folder.Parent = game:GetService("ServerScriptService") until
 	Folder.Parent == game:GetService("ServerScriptService")
 
 	if Folder.Parent == game:GetService("ServerScriptService") then
-		print("[-] Kapspire: Changed parent successfully.")
+		print("[-] Synthaly: Changed parent successfully.")
 	end
 end
 
-local Replicated = script.Kapspire_Replicated
+local Replicated = script.Synthaly_Replicated
 Replicated.Parent = game:GetService("ReplicatedStorage")
 
-local Client = script.Kapspire_Client
+local Client = script.Synthaly_Client
 Client.Parent = game:GetService('StarterGui')
 
 
@@ -39,12 +39,12 @@ game:GetService('Players').PlayerAdded:Connect(function(player)
 	
 	-- Functions
 	local function CreateButton()
-		script.Panel_Button:Clone().Parent = player.PlayerGui:WaitForChild('Kapspire_Client')
-		print('[-] Kapspire: Created button for ' ..player.Name.. ".")	
+		script.Panel_Button:Clone().Parent = player.PlayerGui:WaitForChild('Synthaly_Client')
+		print('[-] Synthaly: Created button for ' ..player.Name.. ".")	
 	end
 	local function CreatePanel()
-		script.Kapspire_Panel:Clone().Parent = player.PlayerGui:WaitForChild('Kapspire_Client') --wait(0.1) until player2.PlayerGui:FindFirstChild('Kapspire_Client'):FindFirstChild("Kapspire_Panel")
-		print('[-] Kapspire: Created panel for ' ..player.Name.. ".")	
+		script.Synthaly_Panel:Clone().Parent = player.PlayerGui:WaitForChild('Synthaly_Client') --wait(0.1) until player2.PlayerGui:FindFirstChild('Synthaly_Client'):FindFirstChild("Synthaly_Panel")
+		print('[-] Synthaly: Created panel for ' ..player.Name.. ".")	
 	end
 	
 
@@ -78,7 +78,7 @@ game:GetService('Players').PlayerAdded:Connect(function(player)
 			
 			if Config["Auto-open on start-up"] == true then
 				wait(2)
-				game:GetService("ReplicatedStorage"):WaitForChild("Kapspire_Replicated"):WaitForChild("Events"):WaitForChild("OpenUI"):FireClient(player)
+				game:GetService("ReplicatedStorage"):WaitForChild("Synthaly_Replicated"):WaitForChild("Events"):WaitForChild("OpenUI"):FireClient(player)
 			end
 			
 		end
@@ -106,7 +106,7 @@ _G.B_GameOwner = gameOwner
 
 --[[ Get version ]]--
 local version = 1.11
-print("[-] Kapspire is running on version "..version)
+print("[-] Synthaly is running on version "..version)
 
 --// Disabled due to downtime issues.
 
@@ -120,7 +120,7 @@ print("[-] Kapspire is running on version "..version)
 --[[ Kick player on request ]]--
 
 
-game:GetService("ReplicatedStorage"):WaitForChild("Kapspire_Replicated"):WaitForChild("Events"):WaitForChild("Trigger").OnServerEvent:Connect(function(player, reason)
+game:GetService("ReplicatedStorage"):WaitForChild("Synthaly_Replicated"):WaitForChild("Events"):WaitForChild("Trigger").OnServerEvent:Connect(function(player, reason)
 	player:Kick(reason)
 end)
 
@@ -131,7 +131,7 @@ end)
 
 
 --[[ Replicated API ]]--
-local Notify = require(game:GetService('ReplicatedStorage'):WaitForChild("Kapspire_Replicated"):WaitForChild("NotifySystem"))
+local Notify = require(game:GetService('ReplicatedStorage'):WaitForChild("Synthaly_Replicated"):WaitForChild("NotifySystem"))
 local function getPlayerRank(requester, playerID)
 	local TargetURL = "http://groups.roproxy.com/v2/users/"..playerID.."/groups/roles"
 	local Response
@@ -139,7 +139,7 @@ local function getPlayerRank(requester, playerID)
 		Response = HttpService:GetAsync(TargetURL)
 	end)
 	if not GetSuccess then
-		warn("[!] Kapspire: Error while getting offline player rank in group. HTTP service might be unoperational. Error: "..GetError)
+		warn("[!] Synthaly: Error while getting offline player rank in group. HTTP service might be unoperational. Error: "..GetError)
 		Notify.notify(requester, "Error", "Error while getting offline player rank in group. HTTP service might be unoperational.", "warning", 4)
 		return false
 	end
@@ -154,7 +154,7 @@ local function getPlayerRank(requester, playerID)
 		return ReturnedNumber
 	else
 		Notify.notify(requester, "Error", "Error while fetching offline player rank in group. Response was invalid.", "warning", 4)
-		warn("[!] Kapspire: HTTP response couldn't be fetched.")
+		warn("[!] Synthaly: HTTP response couldn't be fetched.")
 	end
 end
 
@@ -164,7 +164,7 @@ end
 
 if Config["Use Replicated API"] == true then
 	
-	local Folder = game:GetService('ReplicatedStorage'):WaitForChild("Kapspire_Replicated"):WaitForChild("Replicated_API")
+	local Folder = game:GetService('ReplicatedStorage'):WaitForChild("Synthaly_Replicated"):WaitForChild("Replicated_API")
 
 	
 	local GroupID = Config["Group ID"]
@@ -183,10 +183,10 @@ if Config["Use Replicated API"] == true then
 				-- Rank check
 				local pun_target = player_to_warn
 				if tonumber(pun_target) == nil then
-					print("[-] Kapspire: Requested by username for "..pun_target)
+					print("[-] Synthaly: Requested by username for "..pun_target)
 					local TargetRank = getPlayerRank(requester, getPlayerID(pun_target))
 					local RequesterRank = requester:GetRankInGroup(Config["Group ID"])
-					--print("[*] Kapspire: Requester rank ID: "..RequesterRank.."; target rank ID: "..TargetRank)
+					--print("[*] Synthaly: Requester rank ID: "..RequesterRank.."; target rank ID: "..TargetRank)
 					if TargetRank == false then
 						Notify.notify(requester, "Error", "Punishment fetch failed. Couldn't get permission.", "warning", 4)
 					else
@@ -199,10 +199,10 @@ if Config["Use Replicated API"] == true then
 					end
 				elseif tonumber(pun_target) ~= nil then
 					pun_target = tonumber(pun_target)
-					print("[-] Kapspire: Requested by ID for "..pun_target)
+					print("[-] Synthaly: Requested by ID for "..pun_target)
 					local TargetRank = getPlayerRank(requester, pun_target)
 					local RequesterRank = requester:GetRankInGroup(Config["Group ID"])
-					--print("[*] Kapspire: Requester rank ID: "..RequesterRank.."; target rank ID: "..TargetRank)
+					--print("[*] Synthaly: Requester rank ID: "..RequesterRank.."; target rank ID: "..TargetRank)
 					if TargetRank == false then
 						Notify.notify(requester, "Error", "Punishment fetch failed. Couldn't get permission.", "warning", 4)
 					else
@@ -218,7 +218,7 @@ if Config["Use Replicated API"] == true then
 				
 				API:createWarning(player_to_warn, reason, requester)
 			else
-				warn("[-] Kapspire: Got warn request, but target username was empty. Requested by " ..requester.Name.. "| Error code: 203")
+				warn("[-] Synthaly: Got warn request, but target username was empty. Requested by " ..requester.Name.. "| Error code: 203")
 			end
 		end
 	end)
@@ -229,7 +229,7 @@ if Config["Use Replicated API"] == true then
 			if player_to_remove then
 				API:removeWarning(player_to_remove, reason, requester)
 			else
-				warn("[-] Kapspire: Got unwarn request, but target username was empty. Requested by " ..requester.Name.. "| Error code: 203")
+				warn("[-] Synthaly: Got unwarn request, but target username was empty. Requested by " ..requester.Name.. "| Error code: 203")
 			end
 		end
 	end)
@@ -241,10 +241,10 @@ if Config["Use Replicated API"] == true then
 				-- Rank check
 				local pun_target = player_to_ban
 				if tonumber(pun_target) == nil then
-					print("[-] Kapspire: Requested by username for "..pun_target)
+					print("[-] Synthaly: Requested by username for "..pun_target)
 					local TargetRank = getPlayerRank(requester, getPlayerID(pun_target))
 					local RequesterRank = requester:GetRankInGroup(Config["Group ID"])
-					--print("[*] Kapspire: Requester rank ID: "..RequesterRank.."; target rank ID: "..TargetRank)
+					--print("[*] Synthaly: Requester rank ID: "..RequesterRank.."; target rank ID: "..TargetRank)
 					if TargetRank == false then
 						Notify.notify(requester, "Error", "Punishment fetch failed. Couldn't get permission.", "warning", 4)
 					else
@@ -257,10 +257,10 @@ if Config["Use Replicated API"] == true then
 					end
 				elseif tonumber(pun_target) ~= nil then
 					pun_target = tonumber(pun_target)
-					print("[-] Kapspire: Requested by ID for "..pun_target)
+					print("[-] Synthaly: Requested by ID for "..pun_target)
 					local TargetRank = getPlayerRank(requester, pun_target)
 					local RequesterRank = requester:GetRankInGroup(Config["Group ID"])
-					--print("[*] Kapspire: Requester rank ID: "..RequesterRank.."; target rank ID: "..TargetRank)
+					--print("[*] Synthaly: Requester rank ID: "..RequesterRank.."; target rank ID: "..TargetRank)
 					if TargetRank == false then
 						Notify.notify(requester, "Error", "Punishment fetch failed. Couldn't get permission.", "warning", 4)
 					else
@@ -275,7 +275,7 @@ if Config["Use Replicated API"] == true then
 				-- Rank check end
 				API:tempBan(player_to_ban, duration, reason, requester)
 			else
-				warn("[-] Kapspire: Got temporary ban request, but target username was empty. Requested by " ..requester.Name.. "| Error code: 203")
+				warn("[-] Synthaly: Got temporary ban request, but target username was empty. Requested by " ..requester.Name.. "| Error code: 203")
 			end
 		end
 	end)
@@ -287,10 +287,10 @@ if Config["Use Replicated API"] == true then
 				-- Rank check
 				local pun_target = player_to_ban
 				if tonumber(pun_target) == nil then
-					print("[-] Kapspire: Requested by username for "..pun_target)
+					print("[-] Synthaly: Requested by username for "..pun_target)
 					local TargetRank = getPlayerRank(requester, getPlayerID(pun_target))
 					local RequesterRank = requester:GetRankInGroup(Config["Group ID"])
-					--print("[*] Kapspire: Requester rank ID: "..RequesterRank.."; target rank ID: "..TargetRank)
+					--print("[*] Synthaly: Requester rank ID: "..RequesterRank.."; target rank ID: "..TargetRank)
 					if TargetRank == false then
 						Notify.notify(requester, "Error", "Punishment fetch failed. Couldn't get permission.", "warning", 4)
 					else
@@ -303,10 +303,10 @@ if Config["Use Replicated API"] == true then
 					end
 				elseif tonumber(pun_target) ~= nil then
 					pun_target = tonumber(pun_target)
-					print("[-] Kapspire: Requested by ID for "..pun_target)
+					print("[-] Synthaly: Requested by ID for "..pun_target)
 					local TargetRank = getPlayerRank(requester, pun_target)
 					local RequesterRank = requester:GetRankInGroup(Config["Group ID"])
-					--print("[*] Kapspire: Requester rank ID: "..RequesterRank.."; target rank ID: "..TargetRank)
+					--print("[*] Synthaly: Requester rank ID: "..RequesterRank.."; target rank ID: "..TargetRank)
 					if TargetRank == false then
 						Notify.notify(requester, "Error", "Punishment fetch failed. Couldn't get permission.", "warning", 4)
 					else
@@ -321,7 +321,7 @@ if Config["Use Replicated API"] == true then
 				-- Rank check end
 				API:permBan(player_to_ban, reason, requester)
 			else
-				warn("[-] Kapspire: Got permanent ban request, but target username was empty. Requested by " ..requester.Name.. "| Error code: 203")
+				warn("[-] Synthaly: Got permanent ban request, but target username was empty. Requested by " ..requester.Name.. "| Error code: 203")
 			end
 		end
 	end)
@@ -333,10 +333,10 @@ if Config["Use Replicated API"] == true then
 				-- Rank check
 				local pun_target = player_to_kick
 				if tonumber(pun_target) == nil then
-					print("[-] Kapspire: Requested by username for "..pun_target)
+					print("[-] Synthaly: Requested by username for "..pun_target)
 					local TargetRank = getPlayerRank(requester, getPlayerID(pun_target))
 					local RequesterRank = requester:GetRankInGroup(Config["Group ID"])
-					--print("[*] Kapspire: Requester rank ID: "..RequesterRank.."; target rank ID: "..TargetRank)
+					--print("[*] Synthaly: Requester rank ID: "..RequesterRank.."; target rank ID: "..TargetRank)
 					if TargetRank == false then
 						Notify.notify(requester, "Error", "Punishment fetch failed. Couldn't get permission.", "warning", 4)
 					else
@@ -349,10 +349,10 @@ if Config["Use Replicated API"] == true then
 					end
 				elseif tonumber(pun_target) ~= nil then
 					pun_target = tonumber(pun_target)
-					print("[-] Kapspire: Requested by ID for "..pun_target)
+					print("[-] Synthaly: Requested by ID for "..pun_target)
 					local TargetRank = getPlayerRank(requester, pun_target)
 					local RequesterRank = requester:GetRankInGroup(Config["Group ID"])
-					--print("[*] Kapspire: Requester rank ID: "..RequesterRank.."; target rank ID: "..TargetRank)
+					--print("[*] Synthaly: Requester rank ID: "..RequesterRank.."; target rank ID: "..TargetRank)
 					if TargetRank == false then
 						Notify.notify(requester, "Error", "Punishment fetch failed. Couldn't get permission.", "warning", 4)
 					else
@@ -367,7 +367,7 @@ if Config["Use Replicated API"] == true then
 				-- Rank check end
 				API:kick(player_to_kick, reason, requester)
 			else
-				warn("[-] Kapspire: Got kicking request, but target username was empty. Requested by " ..requester.Name.. "| Error code: 203")
+				warn("[-] Synthaly: Got kicking request, but target username was empty. Requested by " ..requester.Name.. "| Error code: 203")
 			end
 		end
 	end)
@@ -378,7 +378,7 @@ if Config["Use Replicated API"] == true then
 			if player_to_remove then
 				API:removeBan(player_to_remove, reason, requester)
 			else
-				warn("[-] Kapspire: Got unban request, but target username was empty. Requested by " ..requester.Name.. "| Error code: 203")
+				warn("[-] Synthaly: Got unban request, but target username was empty. Requested by " ..requester.Name.. "| Error code: 203")
 			end
 		end
 	end)
@@ -409,14 +409,14 @@ if Config["Use Replicated API"] == true then
 	
 	--|| Set replicated values ||--
 	
-	game:GetService("ReplicatedStorage"):WaitForChild("Kapspire_Replicated"):WaitForChild("Values"):WaitForChild("GroupID").Value = Config["Group ID"]
-	game:GetService("ReplicatedStorage"):WaitForChild("Kapspire_Replicated"):WaitForChild("Values"):WaitForChild("WarningPermission").Value = Config["Create warnings permission"]
-	game:GetService("ReplicatedStorage"):WaitForChild("Kapspire_Replicated"):WaitForChild("Values"):WaitForChild("UnwarnPermission").Value = Config["Remove warnings permission"]
-	game:GetService("ReplicatedStorage"):WaitForChild("Kapspire_Replicated"):WaitForChild("Values"):WaitForChild("TempBanPermission").Value = Config["Create temporary bans permission"]
-	game:GetService("ReplicatedStorage"):WaitForChild("Kapspire_Replicated"):WaitForChild("Values"):WaitForChild("PermBanPermission").Value = Config["Create permanent bans permission"]
-	game:GetService("ReplicatedStorage"):WaitForChild("Kapspire_Replicated"):WaitForChild("Values"):WaitForChild("UnbanPermission").Value = Config["Remove permanent bans permission"]
-	game:GetService("ReplicatedStorage"):WaitForChild("Kapspire_Replicated"):WaitForChild("Values"):WaitForChild("UnbanPermission").Value = Config["Slock permission"]
-	game:GetService("ReplicatedStorage"):WaitForChild("Kapspire_Replicated"):WaitForChild("Values"):WaitForChild("UnbanPermission").Value = Config["Kick players permission"]	
+	game:GetService("ReplicatedStorage"):WaitForChild("Synthaly_Replicated"):WaitForChild("Values"):WaitForChild("GroupID").Value = Config["Group ID"]
+	game:GetService("ReplicatedStorage"):WaitForChild("Synthaly_Replicated"):WaitForChild("Values"):WaitForChild("WarningPermission").Value = Config["Create warnings permission"]
+	game:GetService("ReplicatedStorage"):WaitForChild("Synthaly_Replicated"):WaitForChild("Values"):WaitForChild("UnwarnPermission").Value = Config["Remove warnings permission"]
+	game:GetService("ReplicatedStorage"):WaitForChild("Synthaly_Replicated"):WaitForChild("Values"):WaitForChild("TempBanPermission").Value = Config["Create temporary bans permission"]
+	game:GetService("ReplicatedStorage"):WaitForChild("Synthaly_Replicated"):WaitForChild("Values"):WaitForChild("PermBanPermission").Value = Config["Create permanent bans permission"]
+	game:GetService("ReplicatedStorage"):WaitForChild("Synthaly_Replicated"):WaitForChild("Values"):WaitForChild("UnbanPermission").Value = Config["Remove permanent bans permission"]
+	game:GetService("ReplicatedStorage"):WaitForChild("Synthaly_Replicated"):WaitForChild("Values"):WaitForChild("UnbanPermission").Value = Config["Slock permission"]
+	game:GetService("ReplicatedStorage"):WaitForChild("Synthaly_Replicated"):WaitForChild("Values"):WaitForChild("UnbanPermission").Value = Config["Kick players permission"]	
 else
 	
 	--// Replicated API is off
@@ -431,8 +431,4 @@ end
 
 --[[ Keyblind ]]--
 
-game:GetService("ReplicatedStorage"):WaitForChild("Kapspire_Replicated"):WaitForChild("Values"):WaitForChild("KeyblindValue").Value = Config["Open keybind"]
-
-
-
-
+game:GetService("ReplicatedStorage"):WaitForChild("Synthaly_Replicated"):WaitForChild("Values"):WaitForChild("KeyblindValue").Value = Config["Open keybind"]
