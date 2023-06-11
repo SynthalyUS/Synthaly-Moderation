@@ -49,7 +49,7 @@ function api.createWarning(function_data, username, reason, moderator)
 			UserID = game:GetService("Players"):GetUserIdFromNameAsync(username)
 		end)
 		if not UserID_Success then
-			warn("[!] Kapspire: Error while getting UserID: " ..UserID_Error)
+			warn("[!] Synthaly: Error while getting UserID: " ..UserID_Error)
 		end
 		--|| Get UserID by number ||--
 	elseif typeof(username) == "number" then
@@ -57,7 +57,7 @@ function api.createWarning(function_data, username, reason, moderator)
 			UserID = username
 		end)
 		if not UserID_Success then
-			warn("[!] Kapspire: Error while getting UserID: " ..UserID_Error)
+			warn("[!] Synthaly: Error while getting UserID: " ..UserID_Error)
 		end
 		--|| Get UserID by player instance ||--
 	elseif typeof(username) == "Instance" then
@@ -66,7 +66,7 @@ function api.createWarning(function_data, username, reason, moderator)
 			UserID = username.UserId
 		end)
 		if not UserID_Success then
-			warn("[!] Kapspire: Error while getting UserID: " ..UserID_Error)
+			warn("[!] Synthaly: Error while getting UserID: " ..UserID_Error)
 		end
 	end
 	--(( GET SUSPECT END ))--
@@ -79,15 +79,15 @@ function api.createWarning(function_data, username, reason, moderator)
 			Moderator = moderator
 		elseif typeof(moderator) == 'Instance' then
 			--((NOTIFY))--
-			local Notify = require(game:GetService('ReplicatedStorage'):WaitForChild("Kapspire_Replicated"):WaitForChild("NotifySystem"))
+			local Notify = require(game:GetService('ReplicatedStorage'):WaitForChild("Synthaly_Replicated"):WaitForChild("NotifySystem"))
 			if UserID == _G.B_GameOwner then
 				Notify.notify(moderator, "Game owner", "Cannot create moderation for game owner.", "warning", 3)
-				warn("[!] Kapspire: Cannot create moderation action for the game owner.")
+				warn("[!] Synthaly: Cannot create moderation action for the game owner.")
 				return
 			end
 			--(( CHARACTER LIMIT ))--
 			if reason:len() >= 150 then
-				warn("[!] Kapspire: Reason is too long. Setting default reason.")
+				warn("[!] Synthaly: Reason is too long. Setting default reason.")
 				reason = "Moderator reason was too long, short reason: "..Config["Default Warning Reason"]
 				Notify.notify(moderator, "Reason too long", "Your reason was too long so we changed it to the default reason.", "warning", 3)
 				return
@@ -97,14 +97,14 @@ function api.createWarning(function_data, username, reason, moderator)
 				Notify.notify(moderator, "Warning issued", "A warning has been issued for " ..username.." ("..UserID.."). It will be added if username is valid.", "info", 3)
 			end)
 			if not S_notify then
-				warn("[!] Kapspire: Error while creating notification: " ..E_notify)
+				warn("[!] Synthaly: Error while creating notification: " ..E_notify)
 				Notify.notify(moderator, "Error", E_notify, "alert", 5)
 			end
 			--((NOTIFY END))--
 			Moderator = moderator.Name
 		end
 	else
-		Moderator = "Kapspire Core"
+		Moderator = "Synthaly Core"
 	end
 	--(( GET MODERATOR END ))--
 
@@ -115,7 +115,7 @@ function api.createWarning(function_data, username, reason, moderator)
 	end
 
 	if UserID == _G.B_GameOwner then
-		warn("[!] Kapspire: Cannot create moderation action for the game owner.")
+		warn("[!] Synthaly: Cannot create moderation action for the game owner.")
 		return
 	end
 	
@@ -147,7 +147,7 @@ function api.removeWarning(function_data, username, reason, moderator)
 			UserID = game:GetService("Players"):GetUserIdFromNameAsync(username)
 		end)
 		if not UserID_Success then
-			warn("[!] Kapspire: Error while getting UserID: " ..UserID_Error)
+			warn("[!] Synthaly: Error while getting UserID: " ..UserID_Error)
 		end
 		--|| Get UserID by number ||--
 	elseif typeof(username) == "number" then
@@ -156,7 +156,7 @@ function api.removeWarning(function_data, username, reason, moderator)
 		end)
 
 		if not UserID_Success then
-			warn("[!] Kapspire: Error while getting UserID: " ..UserID_Error)
+			warn("[!] Synthaly: Error while getting UserID: " ..UserID_Error)
 		end
 	--|| Get UserID by player instance ||--
 	elseif typeof(username) == "Instance" then
@@ -164,7 +164,7 @@ function api.removeWarning(function_data, username, reason, moderator)
 			UserID = username.UserId
 		end)
 		if not UserID_Success then
-			warn("[!] Kapspire: Error while getting UserID: " ..UserID_Error)
+			warn("[!] Synthaly: Error while getting UserID: " ..UserID_Error)
 		end
 	end
 	--(( GET SUSPECT END ))--
@@ -179,7 +179,7 @@ function api.removeWarning(function_data, username, reason, moderator)
 			Moderator = moderator.Name
 		end
 	else
-		Moderator = "Kapspire Core"
+		Moderator = "Synthaly Core"
 	end
 	--(( GET MODERATOR END ))--
 
@@ -189,15 +189,15 @@ function api.removeWarning(function_data, username, reason, moderator)
 			WarnDataStore:RemoveAsync(UserID)
 			PostWebhook = true
 		else
-			warn("[!] Kapspire: User doesn't appear to be warned. Couldn't remove warning.")
+			warn("[!] Synthaly: User doesn't appear to be warned. Couldn't remove warning.")
 			if typeof(moderator) == 'Instance' then
 				--((NOTIFY))--
-				local Notify = require(game:GetService('ReplicatedStorage'):WaitForChild("Kapspire_Replicated"):WaitForChild("NotifySystem"))
+				local Notify = require(game:GetService('ReplicatedStorage'):WaitForChild("Synthaly_Replicated"):WaitForChild("NotifySystem"))
 				local S_notify, E_notify = pcall(function()
 					Notify.notify(moderator, "Error", "The user you are trying to unwarn ("..UserID..") doesn't appear to be warned.", "warning", 3)
 				end)
 				if not S_notify then
-					warn("[!] Kapspire: Error while creating notification: " ..E_notify)
+					warn("[!] Synthaly: Error while creating notification: " ..E_notify)
 					Notify.notify(moderator, "Error", E_notify, "alert", 5)
 				end
 				--((NOTIFY END))--
@@ -210,22 +210,22 @@ function api.removeWarning(function_data, username, reason, moderator)
 		if PostWebhook then
 			if typeof(moderator) == 'Instance' then
 				--((NOTIFY))--
-				local Notify = require(game:GetService('ReplicatedStorage'):WaitForChild("Kapspire_Replicated"):WaitForChild("NotifySystem"))
+				local Notify = require(game:GetService('ReplicatedStorage'):WaitForChild("Synthaly_Replicated"):WaitForChild("NotifySystem"))
 				local S_notify, E_notify = pcall(function()
 
 					Notify.notify(moderator, "Warning removed", "Warning removed for "..username.. " ("..UserID..").", "info", 3)
 				end)
 				if not S_notify then
-					warn("[!] Kapspire: Error while creating notification: " ..E_notify)
+					warn("[!] Synthaly: Error while creating notification: " ..E_notify)
 					Notify.notify(moderator, "Error", E_notify, "alert", 5)
 				end
 				--((NOTIFY END))--
 			end
 			print("Warning removed: UserID; " ..UserID.. "; Reason; " ..Reason.."; Moderator; " ..Moderator)
-			Log:Fire("Warning removed", "A warning was removed using Kapspire services. Warning removed by **" ..Moderator.."**.", 5814783, "https://www.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&username=" ..username, "Removed from suspect", username, "Reason", Reason, "New warning log! (removed)")
+			Log:Fire("Warning removed", "A warning was removed using Synthaly services. Warning removed by **" ..Moderator.."**.", 5814783, "https://www.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&username=" ..username, "Removed from suspect", username, "Reason", Reason, "New warning log! (removed)")
 		end
 	else
-		warn("[!] Kapspire: Error while removing warning data: " ..Error)
+		warn("[!] Synthaly: Error while removing warning data: " ..Error)
 	end
 end
 
@@ -252,7 +252,7 @@ function api.tempBan(function_data, username, duration, reason, moderator)
 			Moderator = moderator.Name
 		end
 	else
-		Moderator = "Kapspire Core"
+		Moderator = "Synthaly Core"
 	end
 	--(( GET MODERATOR END ))--
 
@@ -274,7 +274,7 @@ function api.tempBan(function_data, username, duration, reason, moderator)
 			UserID = game:GetService("Players"):GetUserIdFromNameAsync(username)
 		end)
 		if not UserID_Success then
-			warn("[!] Kapspire: Error while getting UserID: " ..UserID_Error)
+			warn("[!] Synthaly: Error while getting UserID: " ..UserID_Error)
 		end
 	--|| Get UserID by number ||--
 	elseif typeof(username) == "number" then
@@ -284,7 +284,7 @@ function api.tempBan(function_data, username, duration, reason, moderator)
 		if UserID_Success then
 			--// Do nothing
 		else
-			warn("[!] Kapspire: Error while getting UserID: " ..UserID_Error)
+			warn("[!] Synthaly: Error while getting UserID: " ..UserID_Error)
 		end
 	--|| Get UserID by player instance ||--
 	elseif typeof(username) == "Instance" then
@@ -292,7 +292,7 @@ function api.tempBan(function_data, username, duration, reason, moderator)
 			UserID = username.UserId
 		end)
 		if not UserID_Success then
-			warn("[!] Kapspire: Error while getting UserID: " ..UserID_Error)
+			warn("[!] Synthaly: Error while getting UserID: " ..UserID_Error)
 		end
 	end
 	--(( GET SUSPECT END ))--
@@ -301,24 +301,24 @@ function api.tempBan(function_data, username, duration, reason, moderator)
 	--|| Get UserID by player  ||--
 	if typeof(moderator) == 'Instance' then
 		--((NOTIFY))--
-		local Notify = require(game:GetService('ReplicatedStorage'):WaitForChild("Kapspire_Replicated"):WaitForChild("NotifySystem"))
+		local Notify = require(game:GetService('ReplicatedStorage'):WaitForChild("Synthaly_Replicated"):WaitForChild("NotifySystem"))
 		if UserID == _G.B_GameOwner then
 			Notify.notify(moderator, "Game owner", "Cannot create moderation for game owner.")
-			warn("[!] Kapspire: Cannot create moderation action for the game owner.")
+			warn("[!] Synthaly: Cannot create moderation action for the game owner.")
 			return
 		end
 		local S_notify, E_notify = pcall(function()
 			Notify.notify(moderator, "Temporary banned", "Temporary ban requested for "..username.. " ("..UserID..").", "info", 3)
 		end)
 		if not S_notify then
-			warn("[!] Kapspire: Error while creating notification: " ..E_notify)
+			warn("[!] Synthaly: Error while creating notification: " ..E_notify)
 			Notify.notify(moderator, "Error", E_notify, "alert", 5)
 		end
 		--((NOTIFY END))--
 	end
 	
 	if UserID == _G.B_GameOwner then
-		warn("[!] Kapspire: Cannot create moderation action for the game owner.")
+		warn("[!] Synthaly: Cannot create moderation action for the game owner.")
 		return
 	end
 	script.Parent.Events.SetTempBan:Fire(UserID, TimeDuration, Reason, Moderator)
@@ -347,7 +347,7 @@ function api.permBan(function_data, username, reason, moderator)
 			Moderator = moderator.Name
 		end
 	else
-		Moderator = "Kapspire Core"
+		Moderator = "Synthaly Core"
 	end
 	--(( GET MODERATOR END ))--
 
@@ -364,7 +364,7 @@ function api.permBan(function_data, username, reason, moderator)
 			UserID = game:GetService("Players"):GetUserIdFromNameAsync(username)
 		end)
 		if not UserID_Success then
-			warn("[!] Kapspire: Error while getting UserID: " ..UserID_Error)
+			warn("[!] Synthaly: Error while getting UserID: " ..UserID_Error)
 		end
 	--|| Get UserID by number ||--
 	elseif typeof(username) == "number" then
@@ -372,7 +372,7 @@ function api.permBan(function_data, username, reason, moderator)
 			UserID = username
 		end)
 		if not UserID_Success then
-			warn("[!] Kapspire: Error while getting UserID: " ..UserID_Error)
+			warn("[!] Synthaly: Error while getting UserID: " ..UserID_Error)
 		end
 	--|| Get UserID by player instance ||--
 	elseif typeof(username) == "Instance" then
@@ -380,7 +380,7 @@ function api.permBan(function_data, username, reason, moderator)
 			UserID = username.UserId
 		end)
 		if not UserID_Success then
-			warn("[!] Kapspire: Error while getting UserID: " ..UserID_Error)
+			warn("[!] Synthaly: Error while getting UserID: " ..UserID_Error)
 		end
 	end
 	--(( GET SUSPECT END ))--
@@ -388,23 +388,23 @@ function api.permBan(function_data, username, reason, moderator)
 	--|| Get UserID by player instance ||--
 	if typeof(moderator) == 'Instance' then
 		--((NOTIFY))--
-		local Notify = require(game:GetService('ReplicatedStorage'):WaitForChild("Kapspire_Replicated"):WaitForChild("NotifySystem"))
+		local Notify = require(game:GetService('ReplicatedStorage'):WaitForChild("Synthaly_Replicated"):WaitForChild("NotifySystem"))
 		if UserID == _G.B_GameOwner then
 			Notify.notify(moderator, "Game owner", "Cannot create moderation for game owner.")
-			warn("[!] Kapspire: Cannot create moderation action for the game owner.")
+			warn("[!] Synthaly: Cannot create moderation action for the game owner.")
 			return
 		end
 		local S_notify, E_notify = pcall(function()
 			Notify.notify(moderator, "Permanently banned", "Permanent ban requested for "..username.. " ("..UserID..").", "info", 3)
 		end)
 		if not S_notify then
-			warn("[!] Kapspire: Error while creating notification: " ..E_notify)
+			warn("[!] Synthaly: Error while creating notification: " ..E_notify)
 			Notify.notify(moderator, "Error", E_notify, "alert", 5)
 		end
 		--((NOTIFY END))--
 	end
 	if UserID == _G.B_GameOwner then
-		warn("[!] Kapspire: Cannot create moderation action for the game owner.")
+		warn("[!] Synthaly: Cannot create moderation action for the game owner.")
 		return
 	end
 	script.Parent.Events.SetPermBan:Fire(UserID, Reason, Moderator)
@@ -433,7 +433,7 @@ function api.removeBan(function_data, username, reason, moderator)
 			Moderator = moderator.Name
 		end
 	else
-		Moderator = "Kapspire Core"
+		Moderator = "Synthaly Core"
 	end
 	--(( GET MODERATOR END ))--
 	
@@ -450,7 +450,7 @@ function api.removeBan(function_data, username, reason, moderator)
 			UserID = game:GetService("Players"):GetUserIdFromNameAsync(username)
 		end)
 		if not UserID_Success then
-			warn("[!] Kapspire: Error while getting UserID: " ..UserID_Error)
+			warn("[!] Synthaly: Error while getting UserID: " ..UserID_Error)
 		end
 	--|| Get UserID by number ||--
 	elseif typeof(username) == "number" then
@@ -458,7 +458,7 @@ function api.removeBan(function_data, username, reason, moderator)
 			UserID = username
 		end)
 		if not UserID_Success then
-			warn("[!] Kapspire: Error while getting UserID: " ..UserID_Error)
+			warn("[!] Synthaly: Error while getting UserID: " ..UserID_Error)
 		end
 	--|| Get UserID by player instance ||--
 	elseif typeof(username) == "Instance" then
@@ -466,7 +466,7 @@ function api.removeBan(function_data, username, reason, moderator)
 			UserID = username.UserId
 		end)
 		if not UserID_Success then
-			warn("[!] Kapspire: Error while getting UserID: " ..UserID_Error)
+			warn("[!] Synthaly: Error while getting UserID: " ..UserID_Error)
 		end
 	end
 	--(( GET SUSPECT END ))--
@@ -477,16 +477,16 @@ function api.removeBan(function_data, username, reason, moderator)
 			PermBanDataStore:RemoveAsync(UserID)
 			PostWebhook = true
 		else
-			warn("[!] Kapspire: Use doesn't appear to be banned. Couldn't unban.")
+			warn("[!] Synthaly: Use doesn't appear to be banned. Couldn't unban.")
 			--|| Get UserID by player instance ||--
 			if typeof(moderator) == 'Instance' then
 				--((NOTIFY))--
-				local Notify = require(game:GetService('ReplicatedStorage'):WaitForChild("Kapspire_Replicated"):WaitForChild("NotifySystem"))
+				local Notify = require(game:GetService('ReplicatedStorage'):WaitForChild("Synthaly_Replicated"):WaitForChild("NotifySystem"))
 				local S_notify, E_notify = pcall(function()
 					Notify.notify(moderator, "Error", "The user you are trying to unban ("..UserID..") doesn't appear to be banned.", "warning", 5)
 				end)
 				if not S_notify then
-					warn("[!] Kapspire: Error while creating notification: " ..E_notify)
+					warn("[!] Synthaly: Error while creating notification: " ..E_notify)
 					Notify.notify(moderator, "Error", E_notify, "alert", 5)
 				end
 				--((NOTIFY END))--
@@ -501,20 +501,20 @@ function api.removeBan(function_data, username, reason, moderator)
 			--|| Get UserID by user instance ||--
 			if typeof(moderator) == 'Instance' then
 				--((NOTIFY))--
-				local Notify = require(game:GetService('ReplicatedStorage'):WaitForChild("Kapspire_Replicated"):WaitForChild("NotifySystem"))
+				local Notify = require(game:GetService('ReplicatedStorage'):WaitForChild("Synthaly_Replicated"):WaitForChild("NotifySystem"))
 				local S_notify, E_notify = pcall(function()
 					Notify.notify(moderator, "Ban removed", "Permanent ban removed for "..username.. " ("..UserID..").", "info", 3)
 				end)
 				if not S_notify then
-					warn("[!] Kapspire: Error while creating notification: " ..E_notify)
+					warn("[!] Synthaly: Error while creating notification: " ..E_notify)
 					Notify.notify(moderator, "Error", E_notify, "alert", 5)
 				end
 				--((NOTIFY END))--
 			end		
-			Log:Fire("Permanent ban removed", "A permanent ban was removed using Kapspire services. Warning removed by **" ..Moderator.."**.", 5814783, "https://www.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&username=" ..username, "Removed from suspect", username, "Reason", Reason, "New permanent ban log! (removed)")
+			Log:Fire("Permanent ban removed", "A permanent ban was removed using Synthaly services. Warning removed by **" ..Moderator.."**.", 5814783, "https://www.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&username=" ..username, "Removed from suspect", username, "Reason", Reason, "New permanent ban log! (removed)")
 		end
 	else
-	warn("[!] Kapspire: Error while removing warning data: " ..Error)
+	warn("[!] Synthaly: Error while removing warning data: " ..Error)
 end
 	
 	PostWebhook = false
@@ -541,7 +541,7 @@ function api.slock(function_data, reason, groupID, min_rank, moderator)
 			Moderator = moderator.Name
 		end
 	else
-		Moderator = "Kapspire Core"
+		Moderator = "Synthaly Core"
 	end
 	--(( GET MODERATOR END ))--
 
@@ -568,18 +568,18 @@ function api.slock(function_data, reason, groupID, min_rank, moderator)
 	--|| Get UserID by player instance ||--
 	if typeof(moderator) == 'Instance' then
 		--((NOTIFY))--
-		local Notify = require(game:GetService('ReplicatedStorage'):WaitForChild("Kapspire_Replicated"):WaitForChild("NotifySystem"))
+		local Notify = require(game:GetService('ReplicatedStorage'):WaitForChild("Synthaly_Replicated"):WaitForChild("NotifySystem"))
 		local S_notify, E_notify = pcall(function()
 
 			Notify.notify(moderator, "Server locked", "This server has been locked for ranks below " ..min_rank..".", "info", 3)
 		end)
 		if not S_notify then
-			warn("[!] Kapspire: Error while creating notification: " ..E_notify)
+			warn("[!] Synthaly: Error while creating notification: " ..E_notify)
 			Notify.notify(moderator, "Error", E_notify, "alert", 5)
 		end
 		--((NOTIFY END))--
 	end
-	Log:Fire("Server locked", "A server has been locked (slock) using Kapspire services. Actioned by **" ..Moderator.."**.", 5814783, "https://cdn-icons-png.flaticon.com/512/159/159069.png", "Actioned by", Moderator, "Reason", Reason, "New lock log")
+	Log:Fire("Server locked", "A server has been locked (slock) using Synthaly services. Actioned by **" ..Moderator.."**.", 5814783, "https://cdn-icons-png.flaticon.com/512/159/159069.png", "Actioned by", Moderator, "Reason", Reason, "New lock log")
 end
 
 --[[----------------------------------------------------------------------------------------------------------]]
@@ -602,24 +602,24 @@ function api.unslock(function_data, moderator)
 			Moderator = moderator.Name
 		end
 	else
-		Moderator = "Kapspire Core"
+		Moderator = "Synthaly Core"
 	end
 	--(( GET MODERATOR END ))--
 
 	script.Parent.Events.SetSlock:Fire(false, Moderator)
 	if typeof(moderator) == 'Instance' then
 		--((NOTIFY))--
-		local Notify = require(game:GetService('ReplicatedStorage'):WaitForChild("Kapspire_Replicated"):WaitForChild("NotifySystem"))
+		local Notify = require(game:GetService('ReplicatedStorage'):WaitForChild("Synthaly_Replicated"):WaitForChild("NotifySystem"))
 		local S_notify, E_notify = pcall(function()
 			Notify.notify(moderator, "Server unlocked", "This server has been unlocked for all ranks.", "info", 3)
 		end)
 		if not S_notify then
-			warn("[!] Kapspire: Error while creating notification: " ..E_notify)
+			warn("[!] Synthaly: Error while creating notification: " ..E_notify)
 			Notify.notify(moderator, "Error", E_notify, "alert", 5)
 		end
 		--((NOTIFY END))--
 	end
-	Log:Fire("Server unlocked", "A server has been unlocked (unslock) using Kapspire services. Actioned by **" ..Moderator.."**.", 5814783, "https://cdn-icons-png.flaticon.com/512/158/158599.png", "Actioned by", Moderator, "Reason", "-reasons cannot be set for unslocks-", "New unlock log")
+	Log:Fire("Server unlocked", "A server has been unlocked (unslock) using Synthaly services. Actioned by **" ..Moderator.."**.", 5814783, "https://cdn-icons-png.flaticon.com/512/158/158599.png", "Actioned by", Moderator, "Reason", "-reasons cannot be set for unslocks-", "New unlock log")
 end
 
 --[[----------------------------------------------------------------------------------------------------------]]
@@ -638,7 +638,7 @@ function api.kick(function_data, username, reason, moderator)
 		TargetPlayer = game:GetService('Players'):FindFirstChild(username)
 	end)
 	if not asuccess then
-		warn("[!] Kapspire: Couldn't find target user: " ..aerror..". | Code: 404")
+		warn("[!] Synthaly: Couldn't find target user: " ..aerror..". | Code: 404")
 	end
 	
 	--(( GET MODERATOR ))--
@@ -651,7 +651,7 @@ function api.kick(function_data, username, reason, moderator)
 			Moderator = moderator.Name
 		end
 	else
-		Moderator = "Kapspire Core"
+		Moderator = "Synthaly Core"
 	end
 	--(( GET MODERATOR END ))--
 
@@ -662,24 +662,24 @@ function api.kick(function_data, username, reason, moderator)
 	end
 
 	if TargetPlayer.UserId == _G.B_GameOwner then
-		warn("[!] Kapspire: Cannot create moderation action for the game owner.")
+		warn("[!] Synthaly: Cannot create moderation action for the game owner.")
 		return
 	end
 	script.Parent.Events.SetKick:Fire(TargetPlayer, Reason, Moderator)
 	--|| Get UserID by player instance ||--
 	if typeof(moderator) == 'Instance' then
 		--((NOTIFY))--
-		local Notify = require(game:GetService('ReplicatedStorage'):WaitForChild("Kapspire_Replicated"):WaitForChild("NotifySystem"))
+		local Notify = require(game:GetService('ReplicatedStorage'):WaitForChild("Synthaly_Replicated"):WaitForChild("NotifySystem"))
 		local S_notify, E_notify = pcall(function()
 			Notify.notify(moderator, "Kicked", "Server removal has been requested for " ..username..".", "info", 3)
 		end)
 		if not S_notify then
-			warn("[!] Kapspire: Error while creating notification: " ..E_notify)
+			warn("[!] Synthaly: Error while creating notification: " ..E_notify)
 			Notify.notify(moderator, "Error", E_notify, "alert", 5)
 		end
 		--((NOTIFY END))--
 	end
-	Log:Fire("Player kicked", "A player has been removed from a server using Kapspire services. Kick issued by **" ..Moderator.."**.", 5814783, "https://www.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&username=" ..username, "Suspect", username, "Reason", Reason, "New kicking log")
+	Log:Fire("Player kicked", "A player has been removed from a server using Synthaly services. Kick issued by **" ..Moderator.."**.", 5814783, "https://www.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&username=" ..username, "Suspect", username, "Reason", Reason, "New kicking log")
 end
 
 --[[----------------------------------------------------------------------------------------------------------]]
@@ -703,7 +703,7 @@ function api.removeTempBan(function_data, username, reason)
 			UserID = game:GetService("Players"):GetUserIdFromNameAsync(username)
 		end)
 		if not UserID_Success then
-			warn("[!] Kapspire: Error while getting UserID: " ..UserID_Error)
+			warn("[!] Synthaly: Error while getting UserID: " ..UserID_Error)
 		end
 	--|| Get UserID by number ||--
 	elseif typeof(username) == "number" then
@@ -711,7 +711,7 @@ function api.removeTempBan(function_data, username, reason)
 			UserID = username
 		end)
 		if not UserID_Success then
-			warn("[!] Kapspire: Error while getting UserID: " ..UserID_Error)
+			warn("[!] Synthaly: Error while getting UserID: " ..UserID_Error)
 		end
 	--|| Get UserID by player instance ||--
 	elseif typeof(username) == "Instance" then
@@ -719,7 +719,7 @@ function api.removeTempBan(function_data, username, reason)
 			UserID = username.UserId
 		end)
 		if not UserID_Success then
-			warn("[!] Kapspire: Error while getting UserID: " ..UserID_Error)
+			warn("[!] Synthaly: Error while getting UserID: " ..UserID_Error)
 		end
 	end
 	--(( GET SUSPECT END ))--
@@ -733,9 +733,9 @@ function api.removeTempBan(function_data, username, reason)
 		TempBanDataStore:RemoveAsync(UserID)
 	end)
 	if not Rsuccess then
-		warn("[!] Kapspire: Error while trying to remove temporary ban: " ..Rerror)
+		warn("[!] Synthaly: Error while trying to remove temporary ban: " ..Rerror)
 	end
-	Log:Fire("Temporary ban removed", "A temporary ban has been removed from a a player using Kapspire services.", 5814783, "https://www.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&username=" ..username, "Suspect", username, "Reason", Reason, "New unbanning log")
+	Log:Fire("Temporary ban removed", "A temporary ban has been removed from a a player using Synthaly services.", 5814783, "https://www.roblox.com/Thumbs/Avatar.ashx?x=100&y=100&username=" ..username, "Suspect", username, "Reason", Reason, "New unbanning log")
 end
 
 
