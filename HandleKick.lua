@@ -8,7 +8,7 @@ local AutoKickDuration = Config["Kicking Auto-Kick"]
 
 
 script.Parent.Events.SetKick.Event:Connect(function(player, Reason, moderator)
-	print("[*] Kapspire: got kick request for " ..player.Name.." with reason "..Reason)
+	print("[*] Synthaly: got kick request for " ..player.Name.." with reason "..Reason)
 	if player then
 		
 		script.Parent.Events.RemoveCharacter:Fire(player)
@@ -17,7 +17,7 @@ script.Parent.Events.SetKick.Event:Connect(function(player, Reason, moderator)
 
 		if Theme == 'light' then
 
-			local GUI = script.Kapspire_Kicked_Light:Clone()
+			local GUI = script.Synthaly_Kicked_Light:Clone()
 
 
 			GUI.Background.MainFrame.ReasonCase.ReasonText.Text = Reason
@@ -26,7 +26,7 @@ script.Parent.Events.SetKick.Event:Connect(function(player, Reason, moderator)
 			AClone.Parent = player.PlayerGui
 
 			AClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-				player:Kick("| [KICKED] | You have been removed from this server, but you can join back. | Reason: " ..Reason.. " | -Kapspire")
+				player:Kick("| [KICKED] | You have been removed from this server, but you can join back. | Reason: " ..Reason.. " | -Synthaly")
 			end)
 
 			while wait(5) do
@@ -35,7 +35,7 @@ script.Parent.Events.SetKick.Event:Connect(function(player, Reason, moderator)
 					local BClone = GUI:Clone()
 					BClone.Parent = player.PlayerGui
 					BClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-						player:Kick("| [KICKED] | You have been removed from this server, but you can join back. | Reason: " ..Reason.. " | -Kapspire")
+						player:Kick("| [KICKED] | You have been removed from this server, but you can join back. | Reason: " ..Reason.. " | -Synthaly")
 					end)
 				else
 					GUI:Destroy()
@@ -46,7 +46,7 @@ script.Parent.Events.SetKick.Event:Connect(function(player, Reason, moderator)
 
 
 		elseif Theme == 'dark' then
-			local GUI = script.Kapspire_Kicked_Dark:Clone()
+			local GUI = script.Synthaly_Kicked_Dark:Clone()
 
 
 			GUI.Background.MainFrame.ReasonCase.ReasonText.Text = Reason
@@ -55,7 +55,7 @@ script.Parent.Events.SetKick.Event:Connect(function(player, Reason, moderator)
 			AClone.Parent = player.PlayerGui
 
 			AClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-				player:Kick("| [KICKED] | You have been removed from this server, but you can join back. | Reason: " ..Reason.. " | -Kapspire")
+				player:Kick("| [KICKED] | You have been removed from this server, but you can join back. | Reason: " ..Reason.. " | -Synthaly")
 			end)
 
 			while wait(5) do
@@ -64,7 +64,7 @@ script.Parent.Events.SetKick.Event:Connect(function(player, Reason, moderator)
 					local BClone = GUI:Clone()
 					BClone.Parent = player.PlayerGui
 					BClone.Background.MainFrame.LogOutButton.ClickButton.MouseButton1Click:Connect(function()
-						player:Kick("| [KICKED] | You have been removed from this server, but you can join back. | Reason: " ..Reason.. " | -Kapspire")
+						player:Kick("| [KICKED] | You have been removed from this server, but you can join back. | Reason: " ..Reason.. " | -Synthaly")
 					end)
 				else
 					GUI:Destroy()
@@ -76,7 +76,7 @@ script.Parent.Events.SetKick.Event:Connect(function(player, Reason, moderator)
 		--[[ Auto-Kick ]]--	
 		if AutoKick == true then
 			wait(AutoKickDuration)
-			player:Kick("| [KICKED] | You have been removed from this server, but you can join back. | Reason: " ..Reason.. " | -Kapspire")
+			player:Kick("| [KICKED] | You have been removed from this server, but you can join back. | Reason: " ..Reason.. " | -Synthaly")
 		end
 		
 		
@@ -86,4 +86,3 @@ script.Parent.Events.SetKick.Event:Connect(function(player, Reason, moderator)
 		
 	end
 end)
-
