@@ -36,8 +36,8 @@ script.Parent.Events.Log.Event:Connect(function(title, description, color_code, 
 						["url"] = image_link;
 					};
 					["footer"] = { -- Again, has to be stored as a table.
-						["text"] = "Kapspire Moderation";
-						["icon_url"] = "https://tr.rbxcdn.com/10e39fb060e3228bbfd1490fcaa7c847/500/500/Image/Png"; -- The image icon you want your footer to have
+						["text"] = "Synthaly Moderation";
+						["icon_url"] = "https://camo.githubusercontent.com/339f46424c764a3fb9c1216ca5135cac35bbbd17012dbd5cd01c56279ca09455/68747470733a2f2f692e696d6775722e636f6d2f4a746856425a732e706e67"; -- The image icon you want your footer to have
 					};
 					["timestamp"] = DateTime.now():ToIsoDate(); -- Will add the date, and the time to the message, not regular to discord.
 					["fields"] = { -- Make a table
@@ -65,7 +65,7 @@ script.Parent.Events.Log.Event:Connect(function(title, description, color_code, 
 		end)
 		
 		if not HTTP_success then
-			warn("[!] Kapspire: There was an erro while trying to post the webhook. Make sure HTTP requests are enabled in game settings. Error: " ..HTTP_error.. "| Error code: 102")
+			warn("[!] Synthaly: There was an erro while trying to post the webhook. Make sure HTTP requests are enabled in game settings. Error: " ..HTTP_error.. "| Error code: 102")
 		end
 		
 		
