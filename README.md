@@ -1,5 +1,5 @@
 <div align="center">
-	<img width="70%" src="https://github.com/SynthalyUS/Synthaly-Moderation/assets/131310227/7861a9fe-94a3-4020-a354-e8782baaa4e3">
+	<img width="70%" src="https://i.imgur.com/kod50aG.png">
 	<h2 align="center"> Synthaly Moderation v1.2 — A moderation system from the future</h2>
 </div>
 <div
