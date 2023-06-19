@@ -1,5 +1,5 @@
 <div align="center">
-	<img width="70%" src="https://i.imgur.com/ttr3IRr.png">
+	<img width="40%" src="https://i.imgur.com/kPXOr0r.png">
 	<h2 align="center"> Synthaly Moderation v1.2 — A moderation system from the future</h2>
 </div>
 <div
@@ -35,7 +35,7 @@ Once you finish that, you can consider that Synthaly Moderation is installed. Th
 <div align="center">
 	<h2></h2>
 	<p>brought you by the</p>
-	<img width="20%" href="https://github.com/SynthalyUS/" src="https://i.imgur.com/JthVBZs.png">
+	<img width="10%" href="https://github.com/SynthalyUS/" src="https://i.imgur.com/JthVBZs.png">
 	<br>
 	<a href="https://github.com/SynthalyUS/">Synthaly Development Team</a>
 	<h2></h2>
