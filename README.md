@@ -12,7 +12,7 @@ Synthaly Moderation has a lot of possibility and potential, it is also the best 
 	<h2>Quicklinks</h2>
 	<ul>
 		<li><a href="https://devforum.roblox.com/t/2398139/">Documentation</a></li>
-		<li><a href="https://discord.com/invite/qybqRx6qV6/">Discord Server</a></li>
+		<li><a href="https://discord.com/invite/YZVAVDY6YQ">Discord Server</a></li>
 		<li><a href="https://www.roblox.com/library/13805086191/">Roblox Model</a></li>
 	</ul>
 </div>
